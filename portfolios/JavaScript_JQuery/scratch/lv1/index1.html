@@ -8,10 +8,23 @@
     
     <body>
         <div class="alert-box" id="alert"> Alert box</div>
-        <button onclick="document.getElementById('alert').style.display = 'block'; "> button </button>
-        <button onclick="document.getElementById('alert').style.display = 'none'; "> Close </button>
+        <button onclick="open_alert('block')"> button </button>
+        <button onclick="close_alert('none')"> Close </button>
 
         
+        <script>
+            function open_alert(hole){
+                document.getElementById('alert').style.display = hole;
+            }
+            
+            function close_alert(hole){
+                document.getElementById('alert').style.display = hole;
+            }
+            
+            function plus(a, b){
+                a + b
+            }
+        </script>
 <!--
         <h2 id="hello">hihi</h2>
         <h2 id="hi">Google CODE JAM <a id="my_a">----</a></h2>
