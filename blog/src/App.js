@@ -14,7 +14,7 @@ function App() {
     
       <div className="list">
         <h3> { strings[0] } </h3>
-        <p> last updated : Apr 8th 2021 </p>
+        <p> last updated : Apr 21st 2021 </p>
         <hr/>
       </div>
 
