@@ -7,6 +7,8 @@ function App() {
   //ES6 Destructuring //스테이트는 변경되면 HTML 이 자동 재랜더링 됩니당. 개꿀띠
   let [likes, likes_modify] = useState(0); // 위에 import 하는거 잊으면 안됨, likes_modify 는 변경용 함수, [state, state_modify_func] // re-render
 
+  let [modal, modal_modify] = useState(false);
+
   function change_the_middle_string() {
     var newArray = [...strings] // copy the state, deep copy    ...은 중괄호 대괄호 다 제거해 주세요 라는 문법
     newArray[1] = 'Software Engineer';  // then modify it 
@@ -19,6 +21,14 @@ function App() {
     string_modify(newArray)
 
     likes_modify(likes + 1)
+  }
+
+  function render_modal() {
+    if (modal === true) {
+      modal_modify(false)
+    } else{
+      modal_modify(true)
+    }
   }
 
   return (
@@ -46,12 +56,28 @@ function App() {
       </div>
 
       <div className="list">
-        <h5> "Software and cathedrals are much the same – first we build them, then we pray." </h5>
+        <h5> "Software and cathedrals are much the same – first we build them, then we pray." <span onClick={render_modal}>🙏</span> </h5>
         <p> Sam Redwine </p>
       </div>
 
+    
+      {
+        modal === true ? <Modal/> : null 
+      }
+      
+
     </div>
   );
+}
+
+function Modal() {   //리액트의 component 라는 문법 , function 이름 짓고 
+  return (
+    <div className="modal">  
+        <h2>Title</h2>
+        <p>Date</p>
+        <p>Contents</p>
+      </div>
+  );  //원하는 HTML 담은 다음에 위에가서 시밤쾅
 }
 
 export default App;
