@@ -7,22 +7,31 @@
     </head>
     
     <body>
-        <div class="alert-box" id="alert"> Alert box</div>
-        <button onclick="open_alert('block')"> button </button>
-        <button onclick="close_alert('none')"> Close </button>
+        <div class="alert-box" id="alert"><p id="text_tag">Alert box</p>
+        <button id="close_alert">X</button>
+        </div>
+        <button onclick="btn1_alert('block','input ID!')"> Button 1 </button>
+        <!--ㅈㅔ목 바꾸고 , 알림창 열어보자 ! -->
+        
+        <button onclick="btn2_alert('block','input PWD!')"> Button 2 </button>
 
         
         <script>
-            function open_alert(hole){
+            function btn1_alert(hole, title){
                 document.getElementById('alert').style.display = hole;
+                document.getElementById('text_tag').innerHTML = title;
             }
             
-            function close_alert(hole){
+            function btn2_alert(hole,title){
                 document.getElementById('alert').style.display = hole;
+                document.getElementById('text_tag').innerHTML = title;
             }
             
-            function plus(a, b){
-                a + b
+            document.getElementById("close_alert").addEventListener('click', function() {
+                    document.getElementById('alert').style.display = 'none';
+                } );
+            
+            function close_alert_fn() {
             }
         </script>
 <!--
