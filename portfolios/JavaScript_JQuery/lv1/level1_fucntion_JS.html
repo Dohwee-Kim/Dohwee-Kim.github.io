@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Document </title>
+        <link rel="stylesheet" href="level1_onlick_main.css">
+    </head>
+    <body>
+
+        <div class="alert-box" id="alert">
+            <p>Alert Box</p>
+        </div>
+        
+        <button onclick="my_function1('alert')"> ID </button>
+        <button onclick="my_function2('alert')"> PWD </button>
+
+        <script>
+            function my_function1(temp){
+                document.getElementById(temp).style.display=' block ';
+                document.getElementById(temp).innerHTML = "ID";
+            }
+
+            function my_function2(temp){
+                document.getElementById(temp).style.display=' block ';
+                document.getElementById(temp).innerHTML = "PWD" ;
+            }
+
+        
+        </script>
+
+    </body>
+</html>
