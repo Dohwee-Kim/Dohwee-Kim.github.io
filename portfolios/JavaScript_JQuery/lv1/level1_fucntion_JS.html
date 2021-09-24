@@ -11,18 +11,14 @@
             <p>Alert Box</p>
         </div>
         
-        <button onclick="my_function1('alert')"> ID </button>
-        <button onclick="my_function2('alert')"> PWD </button>
+        <button onclick="my_function1('ID 입력좀')"> ID </button>
+        <button onclick="my_function1('비번좀')"> PWD </button>
 
         <script>
             function my_function1(temp){
-                document.getElementById(temp).style.display=' block ';
-                document.getElementById(temp).innerHTML = "ID";
-            }
-
-            function my_function2(temp){
-                document.getElementById(temp).style.display=' block ';
-                document.getElementById(temp).innerHTML = "PWD" ;
+                
+                document.getElementById('alert').innerHTML = temp;
+                document.getElementById('alert').style.display= 'block';
             }
 
         
