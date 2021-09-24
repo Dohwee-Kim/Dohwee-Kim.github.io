@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Document </title>
+        <link rel="stylesheet" href="level1_onlick_main.css">
+    </head>
+    <body>
+
+        <div class="alert-box" id="alert">
+            <p id="title">Alert Box</p>
+            <button id='close'>X</button>
+        </div>
+        
+        <button id='idButton'> ID </button>
+        <button id='pwdButton'> PWD </button>
+
+        <script>
+        
+
+            document.getElementById('close').addEventListener('click', function() {
+                document.getElementById('alert').style.display= 'none';
+            } );
+
+            document.getElementById('idButton').addEventListener('click', function() {
+                document.getElementById('alert').style.display= 'block';
+                document.getElementById('title').innerText = "id좀";
+            } );
+
+            document.getElementById('pwdButton').addEventListener('click', function() {
+                document.getElementById('alert').style.display= 'block';
+                document.getElementById('title').innerText = "pwd좀";
+            } );
+
+        </script>
+
+    </body>
+</html>

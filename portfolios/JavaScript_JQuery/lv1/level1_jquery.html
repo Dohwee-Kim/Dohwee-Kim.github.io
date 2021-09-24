@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Document</title>
+        <link rel="stylesheet" href="level1_jq_main.css">
+    </head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <h4 id="test">안뇽</h4> -->
+    <p class="greeting"> hihihihi </p>
+    <p class="greeting"> hihihihi </p>
+    <p class="greeting"> hihihihi </p>
+
+    <button class="btn">mybtn</button> 
+    <button class="btn">mybtn</button> 
+    <button class="btn">mybtn</button> 
+
+
+    <script>
+        $('#test').html('안녕하냐니까');
+        //document.getElementsByClassName('greeting')[0].innerHTML = 'ya';
+        //document.getElementsByClassName('greeting')[1].innerHTML = 'why';
+        //$('#test').css('color', 'blue');
+        //$('#test').addClass('yellow-bg');
+
+
+
+        $('.greeting').html('요호호');
+        $('.btn').on('click', function() {
+            $('.greeting').hide();
+        })
+        //$('.btn').on('click', 'h4' ,function() {};
+    </script>
+    
+
+</body>
+
+</html>
