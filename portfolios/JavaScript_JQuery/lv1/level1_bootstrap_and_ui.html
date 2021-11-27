@@ -22,8 +22,14 @@
 
     <div class="nav-menu">
       <h4 style="margin: 0"> Shirts Studio </h4>
-      <a> Products </a>
+      <a id="nav-sub-button"> Products </a>
     </div>
+
+    <ul class="list-group nav-sub">
+      <li class="list-group-item">Outer</li>
+      <li class="list-group-item">Inner</li>
+      <li class="list-group-item">Shirts</li>
+    </ul>
 
     <div class="jumbotron main_background">
         <h1 class="display-4">Shirts Studio</h1>
@@ -41,6 +47,11 @@
         $('.close-btn').on('click', function() {
           $('.black-background').fadeOut();
         })
+
+        $('#nav-sub-button').click(function(){
+          $('.nav-sub').slideDown();
+        })
+        
       </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
