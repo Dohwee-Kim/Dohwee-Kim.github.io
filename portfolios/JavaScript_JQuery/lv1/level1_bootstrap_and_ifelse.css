@@ -1,0 +1,36 @@
+.main_background {
+    background: url(testPerson.jpg);
+    background-size : cover;
+    color: white;
+}
+
+.black-background{
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    display: none;
+    border-radius: 0px;
+}
+
+.white-background{
+    background: white;
+    width: 80%;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    align-items: center;
+}
+
+.nav-sub{
+    display: none;
+    
+}
