@@ -35,6 +35,20 @@
     }
     data2.data2_a.my_f2();
 
+    var my_obj3 = {
+        data : {
+            func : () => {   // function 대신에 arrow 로 함수 표현가능, 
+                console.log("data3 log , arrow func");
+                console.log(this);  // 이 경우엔 this 를 상위요소를 물려받아서 씀
+            }
+
+        },
+        hamsu() {
+            console.log(11111);
+        }
+    }
+    my_obj3.data.func();
+
     
 
     //console.log('hihi');
