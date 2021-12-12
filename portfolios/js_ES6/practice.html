@@ -9,10 +9,20 @@
 </body>
 
 <script>
+    'use strict';  // 자바스크립을 엄격하게 사용
+
     var name=['kim', 'park'];
     name[2];
     var nae = {name:'kim', age:15};
     console.log('hihi');
+
+    console.log(this);
+
+    function my_func() {
+        console.log(this);
+    }
+
+    my_func()
 
     var arr = [1,2,3,4,5];
     arr.forEach(function(a) {
