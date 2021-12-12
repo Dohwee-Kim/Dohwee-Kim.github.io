@@ -13,17 +13,41 @@
 
     var name=['kim', 'park'];
     name[2];
+
     var nae = {name:'kim', age:15};
-    console.log('hihi');
 
-    console.log(this);
+    var my_obj = { 
+        data: 'Kim',
+        my_f : function() {  // 이런식으로 오브젝트 안에서 함수도 가능
+            console.log('안녕');
+            console.log(this); // 이렇게 오브젝트 안 method에서 this 를 하면, 해당 Method가 동작중인 object 를 가리킴
+        }
+    }
+    my_obj.my_f();
 
+    var data2 = {
+        data2_a : {
+            my_f2 : function() {
+                console.log("data 2 log");
+                console.log(this);
+            }
+        }
+    }
+    data2.data2_a.my_f2();
+
+    
+
+    //console.log('hihi');
+
+    //console.log(this);
+
+    /*
     function my_func() {
         console.log(this);
-    }
+    } 
 
     my_func()
-
+    */
     var arr = [1,2,3,4,5];
     arr.forEach(function(a) {
         console.log(a);
