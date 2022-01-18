@@ -56,7 +56,7 @@ function App() {
       </div>
 
       <div className="list">
-        <h5 style = { {color : 'blue'}}> "Software and cathedrals are much the same – first we build them, then we pray." <span onClick={ ()=>{ modal_modify(!modal)}}>🙏</span> </h5>
+        <h5 style = { {color : 'blue', fontSize: '20px' }}> "Software and cathedrals are much the same – first we build them, then we pray." <span onClick={ ()=>{ modal_modify(!modal)}}>🙏</span> </h5>
         <p> Sam Redwine </p>
       </div>
 
