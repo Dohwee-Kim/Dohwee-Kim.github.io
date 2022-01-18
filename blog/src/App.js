@@ -39,19 +39,19 @@ function App() {
     
       <div className="list">
         <h3> { strings[0] } <span onClick={ liked_handler }>👍</span> {likes} </h3>
-        <p> last updated : Apr 21st 2021 </p>
+        <p> last updated : Jan 18 2022 </p>
         <hr/>
       </div>
 
       <div className="list">
         <h3> { strings[1] } <button onClick={ change_the_middle_string }> Who Am I ?</button></h3>
-        <p> last updated : Apr 8th 2021 </p>
+        <p> last updated : Jan 18 2022 </p>
         <hr/>
       </div>
 
       <div className="list">
         <h3> { strings[2] } </h3>
-        <p> last updated : Apr 8th 2021 </p>
+        <p> last updated : Jan 18 2022 </p>
         <hr/>
       </div>
 
