@@ -5,24 +5,13 @@ import './App.css';
 function App() {
   let [strings, string_modify] = useState(['Personal Info', 'Projects portfolio', 'Certificates', 'About me']);  //a 에는 변수, b 는 데이터를 변경하는 함수 
 
-  let [ resume_title , resume_title_modify ] = useState(['DOHWEE (LEO) KIM']);
-  let [ resume_display, resume_display_modify] = useState(false);
-
   //ES6 Destructuring //스테이트는 변경되면 HTML 이 자동 재랜더링 됩니당. 개꿀띠
   let [likes, likes_modify] = useState(0); // 위에 import 하는거 잊으면 안됨, likes_modify 는 변경용 함수, [state, state_modify_func] // re-render
 
   let [modal, modal_modify] = useState(false);
 
-  function change_the_middle_string() {
-    let newArray = [...strings] // copy the state, deep copy    ...은 중괄호 대괄호 다 제거해 주세요 라는 문법
-    if (newArray[1] === 'Sorry ! Underconstruction !'){
-      newArray[1] = 'Projects portfolio';  // then modify it 
-    }
-    else {
-      newArray[1] = 'Sorry ! Underconstruction !';  // then modify it 
-    }
-    
-    string_modify(newArray); //then push it 
+  const project_btn_clicked = () => {
+    window.open('https://github.com/Dohwee-Kim', '_blank');
   }
 
   function liked_handler() {
@@ -41,10 +30,6 @@ function App() {
     }
   }
 
-  function display_resume() {
-    return ({})
-  }
-
   return (
     <div className="App">
       <div className="black-nav">
@@ -58,7 +43,7 @@ function App() {
       </div>
 
       <div className="list">
-        <h3> { strings[1] } <button onClick={ change_the_middle_string }> See </button></h3>
+        <h3> { strings[1] } <button onClick={ project_btn_clicked }> See </button></h3>
         <p> last updated : Jan 18 2022 </p>
         <hr/>
       </div>
@@ -71,10 +56,6 @@ function App() {
 
       <div className="list">
         <h3> { strings[3] } </h3>
-        <button onClick = { ()=> { resume_display_modify(!resume_display)}}>Resume</button>
-        {
-          resume_display === true ? <resumeModal resume_title= {resume_title}/> : null
-        }
         <p> last updated : Jan 19 2022 </p>
         <hr/>
       </div>
@@ -102,15 +83,5 @@ function Modal() {   //리액트의 component 라는 문법 , function 이름 �
   );  //원하는 HTML 담은 다음에 위에가서 시밤쾅
 }
 
-// props -> 는 전해져 오는 props 를 다 담고있는 object 
-function resumeModal(props) {
-  return (
-    <div className="resume_modal">
-      <h2>{props.resume_title[0]}</h2>
-      <p>날씨</p>
-      <p>상세</p>
-    </div>
-  );
-}
 
 export default App;
