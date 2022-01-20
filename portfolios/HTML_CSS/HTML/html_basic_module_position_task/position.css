@@ -1,3 +1,11 @@
+div {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+
+}
 .main-background {
     width: 100%;
     height: 500px;
@@ -40,7 +48,11 @@
 }
 
 .notification-box {
-    width: 700px;
+    width: 80%;  /*parent's 80% */
+    max-width: 800px; /*set limit*/
+    box-sizing: border-box; /*padding 까지 포함해서 해서*/
+
+
     margin: auto;
     padding: 20px;
     text-align: center;
@@ -48,4 +60,5 @@
     
     position: relative;
     top: -40px;
+    z-index: 1;
 }
