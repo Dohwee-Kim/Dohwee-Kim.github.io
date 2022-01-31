@@ -55,3 +55,15 @@ const printNo = function () {
 
 randomQuiz('wrong', printYes, printNo);
 randomQuiz('I love you', printYes, printNo);
+
+
+
+//Arrow function example 
+//arrow is always anonymous 
+// const simplePrint = function () { console.log('simplePrint!')} ; 
+const add = (a ,b ) => { return a +b; }
+const simpleMultiply = (a,b) => { return a*b;}
+const simplePrint1 = ()=> {console.log('simplePrint');}
+
+
+
