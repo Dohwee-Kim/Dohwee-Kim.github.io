@@ -24,12 +24,12 @@ async function fetchUser() {
 
 // await 에 대하여 .. -> 일단 async 안에서만 사용 가능 
 async function getBanana(){
-    await delay(1000);
+    await delay(2000);
     return 'banana';
 }
 
 async function getApple(){
-    await delay(2000);
+    await delay(1000);
     return 'Apple';
 }
 
@@ -45,12 +45,36 @@ function delay(ms) {
 //        .then(banana => `${apple} + ${banana}`);
 //    });
 //}
-// 요렇게 .. 
+
+//요것도 그닥 좋진 않아요 ..
 async function pickFruits() {
-    const apple = await getApple();
-    const banana = await getBanana();
+    
+        //promise 만들자 마자 
+        const applePromise = getApple();
+        const bananaPromise = getBanana();
+        //
+        const apple = await applePromise;
+        const banana = await bananaPromise;
+    
     return `${apple} + ${banana}`;
 }
 
-
 pickFruits().then(console.log);
+
+// 요게 더 보기좋죠 ? 
+function pickAllFruits() {
+
+    //promise 배열을 전달하면 다 될때까지 모아줌 
+    return Promise.all([getApple(), getBanana()])
+    .then(fruits => fruits.join(' + '));
+}
+pickAllFruits().then(console.log);
+
+
+//만약 먼저 되는거 따오고 싶다 ? race API 를 이용 ! 
+function pickOnlyOne() {
+    return Promise.race([getApple(), getBanana()]);
+
+}
+
+pickOnlyOne().then(console.log);
