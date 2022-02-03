@@ -12,7 +12,7 @@ let dk_obj = {
 let age = 15;
 
 console.log(`hi I am ${dk_obj.age} \n years old`);
-
+name.length
 
 //default value
 function showMessage(message, from = 'unknown') {
