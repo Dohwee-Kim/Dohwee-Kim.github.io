@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<header>
+
+</header>
+<body>
+    <div style="display: none">모달창0</div>
+    <div style="display: none">모달창1</div>
+    <div style="display: none">모달창2</div>
+
+    <button>Button0</button>
+    <button>Button1</button>
+    <button>Button2</button>
+
+
+</body>
+
+
+<script>
+
+    var buttons = document.querySelectorAll('button');
+    var modals = document.querySelectorAll('div');
+
+    //이벤트 리스너 반복시키기
+    // var 로 하면 안됨
+    for (let i=0 ; i< 3; i++) {
+        buttons[i].addEventListener('click', function() {
+            modals[i].style.display = 'block';
+        })
+    }
+
+    var 문자 = `손흥민`; 
+    var my_str = `hi may name is ${문자}`;
+    console.log(my_str);
+
+
+    //함수 만들고 파라미터 두개 넣으면 문자열 + 변수를 나눠서 분석 가능하게 해줌 
+    // 문자를 모두 어레이 안으로 넣어줌 
+    function analysis(chars ,variables){
+        console.log(chars);
+        console.log(variables);
+        //요런식으로 원하는 식으로 바꿔낼 수 있음
+        console.log( chars[1] + variables[0] + chars[0]);
+    }
+
+    analysis`hi !!! I am ${문자}, ! ho ho ho`;
+
+
+    let pants = 0;
+    let socks = 100; 
+
+    let my_str2 = `바지${pants} 양말 ${socks}`;
+
+    function analysis2(chars, variable1, variable2){
+        if (variable1 == 0) {
+            console.log("바지 다 나갔음");
+        }
+        else {
+            console.log(chars[1] + variable2 + chars[0] + variable1);
+        }
+        
+    }
+    analysis2 `바지${pants} 양말 ${socks}`;
+
+</script>
