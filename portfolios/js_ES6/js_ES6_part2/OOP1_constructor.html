@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<header>
+
+</header>
+<body>
+    <div>
+        
+    </div>
+
+</body>
+
+
+<script>
+    var 학생1 = {
+        name : "Kim",
+        age : 15 
+    }
+    
+    //constructor 를 할때도 function 사용 
+    function Student(name="defaultName", age=0) {
+        this.name = name;
+        this.age = age 
+
+        this.sayHi = function () {
+            console.log('안녕하세요' + this.name + ' 입니다');
+        }
+
+        this.showData = function () {
+            console.log(this.name);
+            console.log(this.age);
+        }
+    }
+
+    let student1 = new Student();
+    console.log(student1.name);
+    student1.sayHi();
+
+    let student2 = new Student();
+    let student3 = new Student('super_student', 999);
+
+    student2.showData();
+    student3.showData();
+
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<header>
+
+</header>
+<body>
+    <div>
+        
+    </div>
+
+</body>
+
+
+<script>
+
+    //프로토타입 -> 상속을 위해서 만들어진거 
+
+    function Student(Name) {
+        this.name = Name;
+        this.age = 15
+        this.ShowData = function() {
+            console.log( this.name + " " + this.age );
+        }
+    }
+
+    let student1 = new Student('dk1');
+    student1.ShowData();
+
+    Student.prototype.gender = 'Male';
+    Student.prototype.ShowData = function() {
+        consoloe.log( this.name + " " + this.age + " " + this.gender);
+    }
+
+    let student2 = new Student('dk2');
+    //console.log(student2.gender);
+    console.log(student1.__proto__);  //부모의 프로토타입들을 받아온다 
+
+    //자식.__proto__ = 부모 ;  //자식 , 부모 각각 오브젝트 , 오브젝트 간의 상속 관계등록도 가능
+    student2.ShowData();
+    //오잉 ? 메소드 오버라이딩은 안되나 ?? 
+
+</script>
