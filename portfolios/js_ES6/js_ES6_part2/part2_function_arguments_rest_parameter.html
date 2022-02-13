@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<header>
+
+</header>
+<body>
+    <div>
+        <button id ="btn"> BUTTON </button>
+    </div>
+
+</body>
+
+
+<script>
+
+    //디폴트 파라미터, 이런식으로 하면 디폴트 지정됩니다. 
+    function add_on (a,b=10){
+        console.log(a+b)
+    }
+
+    add_on(1);
+    // 11출력
+
+    //함수를 디폴트 파라미터로 넘길수도있습니다 .
+
+    function tmp_func(){
+        return 10 
+    }
+
+
+    function tmp_add_on ( a, b = tmp_func()) {
+        console.log(a+b)
+    }
+
+    tmp_add_on(2)
+    //12가 출력 
+
+
+    //JS 에서 모든 파라미터를 한꺼번에 싸잡아서 다루고 싶을 경우에
+
+    function my_func(a,b,c,d){
+        console.log(arguments);
+        console.log(arguments[0]); // 요렇게 어레이 처럼 접근가능
+
+        for (var i=0 ; i < arguments.length; i++){  //옛날문법이랍니다 .. 
+            console.log(arguments[i])
+        }
+    }
+
+    //my_func(1,2,3,"hihi");
+
+
+    //REST 파라메터에 대해 , 쩜쩜쩜 이 스프레드 혹은 레스트 
+    //얘의 장점은 , 몇개를 잘라낼 수 있음 
+    function hamsu2 (...my_params) {
+        console.log(my_params);
+    }
+
+    function hamsu3 (a,...my_params) {
+        console.log(my_params);
+    }
+
+    //REST 는 반드시 마지막에 써줘야함
+    hamsu2("hoho", "does this work", 1 , "x","last");
+    hamsu3("hoho", "does this work", 1 , "x","last");
+    
+</script>
