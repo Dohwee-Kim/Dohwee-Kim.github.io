@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<header>
+
+</header>
+<body>
+    <div>
+        <button id="btn">Button</button>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<img id="test" src="https://codingapple1.github.io/kona.jpg"> 
+
+<script>
+    async function clicker() {
+        var promise = new Promise(function(success, failed){
+            document.getElementById("btn").addEventListener('click', 
+            function() {
+                success('success'); //프로미스 성공 
+            })
+        })
+
+        try {
+            var result = await promise;
+            console.log(result);
+        } catch {
+            console.log("sorry");
+        }
+    }
+    clicker();
+</script>

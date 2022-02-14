@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<header>
+
+</header>
+<body>
+    <div>
+        
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<img id="test" src="https://codingapple1.github.io/kona.jpg"> 
+
+<script>
+    
+
+    //Q1 ->
+    //이미지를 로드해와서 잘 처리되었는지 확인하는 메소오드 
+    var imageLoading = new Promise(function(fulfilled, rejected){
+        var img = document.querySelector('#test'); //셀렉터로 이미지를 찾은 다음에 
+        img.addEventListener('load', function() {  //로딩상태를 체크해준다 , 
+            fulfilled(); // 로딩 잘 됐으면 promise 성공 
+        });
+
+        img.addEventListener('error', function() {  //로딩상태를 체크해준다. 에러가 났을때는 요렇게 에러처리를 할 수 있다 . 
+            rejected();  // 실패할 경우 에러 핸들링
+        });
+
+    })
+    
+    imageLoading.then(function(){
+        console.log('loading completed');
+    }).catch(function() {
+        console.log('loading failed');
+    })
+    
+
+    //Q2 -> 
+    //AJAX 요청 
+    /*
+    $.ajax({
+        type : 'GET',
+        url : 'URL 경로'
+    }).done(function(결과){
+    console.log(결과);
+    });
+    $.get('URL 경로').done(function(결과){
+        console.log(결과)
+    });
+    */
+
+    var aJaxRequest = new Promise(function(fullfilled, reject) {
+        $.get('https://codingapple1.github.io/hello.txt')
+        .done( function(res) {
+            fullfilled(res);
+        })
+        
+    })
+
+    aJaxRequest.then(function() {
+        console.log('AJAX성공');
+    }).catch(function() {
+        console.log('AJAX실패');
+    })
+
+
+    //Q3 ->
+    //AJAX 요청 성공시 또다른 곳으로 AJAX 요청
+
+
+    //Promise 어려우면 async / await 씁시다 
+    async function 더하기() {
+        var promise1 = new Promise(function(success, failure){
+            var omg = 1+1;
+            success(100);
+        })
+
+        try {
+            var res = await promise1; //프로미스 결과 나올때까지 기다려 , await 은 try,catch 로 잡을 수 있음
+            console.log(res);
+        } catch {
+            console.log('잘 안되었음');
+        }
+        
+
+    }
+
+    더하기();
+
+
+</script>
