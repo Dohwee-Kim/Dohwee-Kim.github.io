@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 
-const connectionURL = 'mongodb+srv://dkim:znajyuJ0mpVma07E@cluster0.axemy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const connectionURL = '';
 const dbName = 'todoapp';
 const collectionName = 'post';
 
