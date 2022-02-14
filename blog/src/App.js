@@ -15,9 +15,9 @@ function App() {
   }
 
   function liked_handler() {
-    let newArray =[...strings] ;
-    newArray[0] = 'Thanks for the Like ! ';
-    string_modify(newArray)
+    let newArray =[...strings] ;//수정된 데이터 복사본을 만듬 
+    newArray[0] = 'Thanks for the Like ! '; 
+    string_modify(newArray)   // 그 다음 덮어씌움
 
     likes_modify(likes + 1)
   }

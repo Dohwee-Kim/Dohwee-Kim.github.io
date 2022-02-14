@@ -23,3 +23,9 @@ console.log(rabbit_json);
 //원하는 애만 통제할 수 있음
 rabbit_json = JSON.stringify(rabbit, ['name','color']);
 console.log(rabbit_json);
+
+
+a = '누구세요'
+var a = 1
+a = a + '2'
+console.log(a)
