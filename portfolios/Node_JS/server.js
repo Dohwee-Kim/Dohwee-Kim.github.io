@@ -3,11 +3,13 @@ const express = require('express');
 //객체를 만들어 주세요 
 const app = express();
 const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 const MongoClient = require('mongodb').MongoClient;
-
-const connectionURL = '';
+app.set('view engine', 'ejs');  //EJS 를 사용해서 HTML 렌더링
+const connectionURL = 'mongodb+srv://dkim:znajyuJ0mpVma07E@cluster0.axemy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const dbName = 'todoapp';
 const collectionName = 'post';
+
 
 MongoClient.connect(connectionURL, function(error, client){
     if(error) {
@@ -60,6 +62,10 @@ app.post('/add', function(request, response){
     }
 
     //now store to DB
+    //문법 collection.insertOne( '저장할 데이터' (오브젝트 자료형)! , 콜백함수 )
+    /*db.collection(collectionName).insertOne({_id: 100, name: 'John', age: 20}, function(error, result){
+        console.log('saved');
+    });*/
     db.collection(collectionName).insertOne( form_obj , function(error, result){
         if (error) {
             console.log(error);
@@ -67,12 +73,15 @@ app.post('/add', function(request, response){
     });
 })
 
+//누군가 get 요청으로 list 로 접속하면 HTML 로 보여줌
 app.get('/list', function(request, response){
-    //display DB 
+    db.collection('post').find().toArray(function(error, result) {
+        console.log(result);
+        //display DB data list 
+                                // 요렇게 쓰면 위에 가져온 result 결과를 posts 란 이름으로 보냄
+    response.render('list.ejs', { posts : result});
+    });  // 모든 데이터를 다 가져옵니다.  
+
+    
+
 })
-
-
-//문법 collection.insertOne( '저장할 데이터' (오브젝트 자료형)! , 콜백함수 )
-/*db.collection(collectionName).insertOne({_id: 100, name: 'John', age: 20}, function(error, result){
-    console.log('saved');
-});*/
