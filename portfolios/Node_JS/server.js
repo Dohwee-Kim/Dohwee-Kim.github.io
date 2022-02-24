@@ -6,10 +6,10 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 const MongoClient = require('mongodb').MongoClient;
 app.set('view engine', 'ejs');  //EJS 를 사용해서 HTML 렌더링
-const connectionURL = 'mongodb+srv://dkim:znajyuJ0mpVma07E@cluster0.axemy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const connectionURL = '';
 const dbName = 'todoapp';
 const collectionName = 'post';
-
+const postingCounterCollectionName = 'counter';
 
 MongoClient.connect(connectionURL, function(error, client){
     if(error) {
@@ -50,27 +50,44 @@ app.post('/add', function(request, response){
     response.send('Sent !!');
     //console.log(request.body.title);
     //console.log(request.body.date);
-
+    /*
     let min = Math.ceil(10000);
     let max = Math.ceil(20000);
     let tempId = Math.floor(Math.random() * (max - min + 1) + min);
-
-    form_obj = {
-        _id : tempId,
-        title : request.body.title,
-        date : request.body.date
-    }
-
-    //now store to DB
-    //문법 collection.insertOne( '저장할 데이터' (오브젝트 자료형)! , 콜백함수 )
-    /*db.collection(collectionName).insertOne({_id: 100, name: 'John', age: 20}, function(error, result){
-        console.log('saved');
-    });*/
-    db.collection(collectionName).insertOne( form_obj , function(error, result){
-        if (error) {
-            console.log(error);
+    */
+                                                // 게시물 하나 찾을때 -요게 쿼리문, object 형식, 
+   db.collection(postingCounterCollectionName).findOne({name : 'counting posts'}, function(error, result) {
+        //console.log(result);
+        let numOfPostings = result.totalPosts;
+        form_obj = {
+            _id : numOfPostings+1,
+            title : request.body.title,
+            date : request.body.date
         }
-    });
+
+        //now store to DB
+        //문법 collection.insertOne( '저장할 데이터' (오브젝트 자료형)! , 콜백함수 )
+        /*db.collection(collectionName).insertOne({_id: 100, name: 'John', age: 20}, function(error, result){
+        console.log('saved');
+        });*/
+        db.collection(collectionName).insertOne( form_obj , function(error, result){
+            if (error) {
+                console.log(error);
+            }
+
+            else {                                          //업데이트 할거는 세개가 필요함 , 
+                                                            //왼쪽:어떤애를 수정할지                  //오퍼레이터, set(변경),inc(증가),min(적을때만변경),rename(재설정)
+                db.collection(postingCounterCollectionName).updateOne({name: 'counting posts'},{ $inc : {totalPosts: 1} }, function(error, result){
+                    if (error) {
+                        console.log(error);
+                    }
+                })
+                console.log('Saved to DB successfully !');
+            }
+        
+        });
+
+   });
 })
 
 //누군가 get 요청으로 list 로 접속하면 HTML 로 보여줌
