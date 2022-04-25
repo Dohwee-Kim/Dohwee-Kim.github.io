@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Document </title>
+        <link rel="stylesheet" href="./1_main.css">
+    </head>
+    <body>
+        <div class="alert-box" id="alert">안뇽 그런데 왜 언니는 해도 돼 ?
+            <button onclick="closingAlert()">닫쟈</button>
+        </div>
+        <button onclick="openAlert('alert')">열쟈</button>
+        
+        <script>
+            // document.getElementById("Hello").style.fontSize = '16px';
+            function openAlert(arg1) {
+                document.getElementById(arg1).style.display='block'; 
+            }
+
+            function closingAlert() {
+                document.getElementById('alert').style.display='none';
+            }
+        </script>
+
+    </body>
+</html>
