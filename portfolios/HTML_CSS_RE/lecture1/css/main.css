@@ -42,6 +42,7 @@
     width: 100%;
     height: 50px;
     background-color: lightgray;
+    clear: both;
     /*
     클리어는 float 을 해제할때 많이씁니다
     float: left 를 해제할땐 clear: left 이런식으로.. 
