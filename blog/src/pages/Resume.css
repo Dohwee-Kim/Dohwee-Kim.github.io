@@ -1,0 +1,26 @@
+/* src/pages/Resume.css */
+.resume {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .resume h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .download-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .download-button:hover {
+    background: #0056b3;
+  }
+  

@@ -1,0 +1,26 @@
+/* src/pages/Github.css */
+.github {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .github h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .github-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .github-button:hover {
+    background: #555;
+  }
+  
