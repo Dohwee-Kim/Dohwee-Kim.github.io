@@ -1,4 +1,5 @@
 import React from "react";
+import profileImage from '../assets/profile.jpeg'; // 이미지를 src/assets 폴더로 이동
 
 export default function Home() {
   return (
@@ -6,7 +7,7 @@ export default function Home() {
       <h2>About Me</h2>
       <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
         <img
-          src="/profile.jpg"
+          src={profileImage}  // 변경된 부분
           alt="Profile"
           style={{
             width: "140px",
